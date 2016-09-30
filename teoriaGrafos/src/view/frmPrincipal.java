@@ -29,7 +29,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         pnlPrincipal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblTitulo.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         lblTitulo.setText("Trabalho - Teoria dos Grafos");
 
         javax.swing.GroupLayout pnlPrincipalLayout = new javax.swing.GroupLayout(pnlPrincipal);
@@ -42,7 +42,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                         .addGap(475, 475, 475)
                         .addComponent(jLabel1))
                     .addGroup(pnlPrincipalLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                        .addGap(26, 26, 26)
                         .addComponent(lblTitulo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -51,9 +51,9 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addGroup(pnlPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(40, 40, 40)
+                .addGap(18, 18, 18)
                 .addComponent(lblTitulo)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         btnCadAluno.setText("Cadastrar Aluno");
@@ -91,15 +91,14 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(pnlPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCadDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27))
         );
 
-        setSize(new java.awt.Dimension(639, 363));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void ChamarCadDisciplina(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChamarCadDisciplina

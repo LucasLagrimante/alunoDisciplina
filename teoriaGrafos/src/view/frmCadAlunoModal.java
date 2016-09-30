@@ -1,10 +1,8 @@
 
 package view;
 
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import model.Aluno;
-import model.Disciplina;
+
 
 
 
@@ -12,6 +10,7 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
 
     private Aluno aluno;
    
+            
     public frmCadAlunoModal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -43,7 +42,7 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
 
         pnlCadAluno.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblTitulo.setFont(new java.awt.Font("Tempus Sans ITC", 0, 34)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 34)); // NOI18N
         lblTitulo.setText("Cadastro Aluno");
 
         javax.swing.GroupLayout pnlCadAlunoLayout = new javax.swing.GroupLayout(pnlCadAluno);
@@ -89,22 +88,25 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAno)
-                            .addComponent(lblDisciplina)
-                            .addComponent(lblNome))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnGravar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(NomeAluno)
-                                .addComponent(AnoAluno)
-                                .addComponent(ListaDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAno)
+                                    .addComponent(lblDisciplina)
+                                    .addComponent(lblNome))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(NomeAluno)
+                                    .addComponent(AnoAluno)
+                                    .addComponent(ListaDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(76, 76, 76)
+                                .addComponent(btnGravar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addComponent(pnlCadAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -120,29 +122,23 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
                     .addComponent(ListaDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnGravar)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void gravarInfos(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gravarInfos
             
         aluno.setNomeAluno(NomeAluno.getText());
         aluno.setAno(AnoAluno.getText());
-        JOptionPane.showMessageDialog(null,"DADOS GRAVADOS COM SUCESSO");
-        dispose();
-        
+       
+        System.out.println("Dados gravados com sucesso.");
     }//GEN-LAST:event_gravarInfos
 
     private void ListaDisciplinas(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaDisciplinas
-            ArrayList array = new Disciplina.getDisciplinas();  
-            String str = null;  
-            for(int i = 0;i<array.size(); i++ ){  
-                str = (String) array.get(i).toString();  
-                ListaDisciplinas.addItem(str);  
-           }
+                
+     
     }//GEN-LAST:event_ListaDisciplinas
 
     /**
