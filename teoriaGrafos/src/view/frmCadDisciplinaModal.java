@@ -11,16 +11,13 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
 
     private Disciplina disciplina;
     
-    /*List disciplinas = new ArrayList<Disciplina>();
-
-    public List getDisciplinas() {
+    List disciplinas = new ArrayList<Disciplina>();
+    
+    public List getDisciplinas(){
+        
         return disciplinas;
     }
 
-    public void setDisciplinas(List disciplinas) {
-        this.disciplinas = disciplinas;
-    }
-    */
     
     public frmCadDisciplinaModal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -145,12 +142,20 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
     }//GEN-LAST:event_jtfPeriodoActionPerformed
 
     private void gravarInfos(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gravarInfos
+       
+        if(jtfNome.getText().isEmpty()||jtfAno.getText().isEmpty()||jtfPeriodo.getText().isEmpty()){
             
+            JOptionPane.showMessageDialog(rootPane, "Existem Campos vazios");
+            
+        }
+        else{
         disciplina.setNomeDisciplina(jtfNome.getText());
         disciplina.setAnoDisciplina(jtfAno.getText());
         disciplina.setPeriodoDisciplina(jtfPeriodo.getText());
         JOptionPane.showMessageDialog(null,"DADOS GRAVADOS COM SUCESSO");
         dispose();
+        disciplinas.add(disciplina);
+        }
     }//GEN-LAST:event_gravarInfos
 
     /**

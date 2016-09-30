@@ -41,8 +41,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnGravar" min="-2" pref="136" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="NomeAluno" max="32767" attributes="0"/>
-                              <Component id="AnoAluno" max="32767" attributes="0"/>
+                              <Component id="jtfNomeAluno" max="32767" attributes="0"/>
+                              <Component id="jtfAnoAluno" max="32767" attributes="0"/>
                               <Component id="ListaDisciplinas" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -60,12 +60,12 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="NomeAluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtfNomeAluno" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAno" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="AnoAluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtfAnoAluno" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -85,7 +85,7 @@
         <Property name="text" type="java.lang.String" value="Nome:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="NomeAluno">
+    <Component class="javax.swing.JTextField" name="jtfNomeAluno">
     </Component>
     <Component class="javax.swing.JLabel" name="lblAno">
       <Properties>
@@ -97,7 +97,7 @@
         <Property name="text" type="java.lang.String" value="Displina:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="AnoAluno">
+    <Component class="javax.swing.JTextField" name="jtfAnoAluno">
     </Component>
     <Container class="javax.swing.JPanel" name="pnlCadAluno">
       <Properties>
