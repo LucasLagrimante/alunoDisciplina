@@ -7,9 +7,7 @@ import java.util.List;
 
 public class Disciplina {
     
-    private String nomeDisciplina;
-    private String anoDisciplina;
-    private String periodoDisciplina;
+    private String nomeDisciplina, anoDisciplina, periodoDisciplina;;
     
     private static ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
 

@@ -6,8 +6,7 @@ import java.util.ArrayList;
 
 public class Aluno {
     
-    private String nomeAluno;
-    private String ano;
+    private String nomeAluno, ano;
     Disciplina disciplina;
     
 
