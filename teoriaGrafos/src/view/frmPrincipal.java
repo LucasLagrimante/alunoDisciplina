@@ -6,10 +6,10 @@ import java.util.List;
 import model.Disciplina;
 
 
-public class FormPrincipal extends javax.swing.JFrame {
+public class frmPrincipal extends javax.swing.JFrame {
 
    
-    public FormPrincipal() {
+    public frmPrincipal() {
         initComponents();
     }
     
@@ -101,14 +101,14 @@ public class FormPrincipal extends javax.swing.JFrame {
 
     private void ChamarCadDisciplina(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChamarCadDisciplina
         
-        FormCadDisciplinaModal fcdm = new FormCadDisciplinaModal(this, true);
+        frmCadDisciplinaModal fcdm = new frmCadDisciplinaModal(this, true);
            fcdm.setVisible(true);
            
     }//GEN-LAST:event_ChamarCadDisciplina
 
     private void ChamarCadAluno(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChamarCadAluno
         
-        FormCadAlunoModal fcam = new FormCadAlunoModal(this, true);
+        frmCadAlunoModal fcam = new frmCadAlunoModal(this, true);
            fcam.setVisible(true);
         
     }//GEN-LAST:event_ChamarCadAluno
@@ -130,20 +130,21 @@ public class FormPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormPrincipal().setVisible(true);
+                new frmPrincipal().setVisible(true);
             }
         });
     }
