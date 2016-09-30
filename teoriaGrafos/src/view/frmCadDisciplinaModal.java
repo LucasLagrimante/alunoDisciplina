@@ -3,6 +3,7 @@ package view;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import model.Disciplina;
 
 
@@ -50,7 +51,7 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
 
         pnlCadDisciplina.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 34)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Tempus Sans ITC", 0, 34)); // NOI18N
         lblTitulo.setText("Cadastro Disciplina");
 
         javax.swing.GroupLayout pnlCadDisciplinaLayout = new javax.swing.GroupLayout(pnlCadDisciplina);
@@ -105,19 +106,18 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
                             .addComponent(lblPeriodo)
                             .addComponent(lblNome))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtfNome)
-                            .addComponent(jtfPeriodo)
-                            .addComponent(jtfAno, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(btnGravar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(39, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnGravar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jtfNome)
+                                .addComponent(jtfPeriodo)
+                                .addComponent(jtfAno, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addComponent(pnlCadDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -133,10 +133,11 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
                     .addComponent(jtfPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnGravar)
-                .addGap(22, 22, 22))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtfPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfPeriodoActionPerformed
@@ -148,7 +149,8 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
         disciplina.setNomeDisciplina(jtfNome.getText());
         disciplina.setAnoDisciplina(jtfAno.getText());
         disciplina.setPeriodoDisciplina(jtfPeriodo.getText());
-        System.out.println("Dados Cadastrados com sucesso");
+        JOptionPane.showMessageDialog(null,"DADOS GRAVADOS COM SUCESSO");
+        dispose();
     }//GEN-LAST:event_gravarInfos
 
     /**
