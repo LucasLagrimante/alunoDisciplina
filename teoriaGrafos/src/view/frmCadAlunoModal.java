@@ -4,6 +4,7 @@ package view;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Aluno;
+import static model.Disciplina.getDisciplinas;
 
 
 
@@ -33,6 +34,11 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
         ListaDisciplinas = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         lblNome.setText("Nome:");
 
@@ -40,7 +46,7 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
 
         lblDisciplina.setText("Displina:");
 
-        pnlCadAluno.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnlCadAluno.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         lblTitulo.setFont(new java.awt.Font("Tempus Sans ITC", 0, 34)); // NOI18N
         lblTitulo.setText("Cadastro Aluno");
@@ -69,7 +75,6 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
             }
         });
 
-        ListaDisciplinas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         ListaDisciplinas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ListaDisciplinas(evt);
@@ -142,13 +147,18 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
     }//GEN-LAST:event_gravarInfos
 
     private void ListaDisciplinas(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaDisciplinas
+
+    }//GEN-LAST:event_ListaDisciplinas
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
             ArrayList array = new ArrayList();
+            array = getDisciplinas();
             String str = null;  
             for(int i = 0;i<array.size(); i++ ){  
                 str = (String) array.get(i).toString();  
                 ListaDisciplinas.addItem(str);  
-           }
-    }//GEN-LAST:event_ListaDisciplinas
+           }        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
