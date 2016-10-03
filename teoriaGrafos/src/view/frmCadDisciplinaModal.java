@@ -153,8 +153,8 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
         disciplina.setAnoDisciplina(jtfAno.getText());
         disciplina.setPeriodoDisciplina(jtfPeriodo.getText());
         JOptionPane.showMessageDialog(null,"DADOS GRAVADOS COM SUCESSO");
-        dispose();
         disciplinas.add(disciplina);
+        dispose();
         }
     }//GEN-LAST:event_gravarInfos
 
