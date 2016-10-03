@@ -180,8 +180,7 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null,"DADOS GRAVADOS COM SUCESSO");
         disciplinas.add(disciplina);
         
-        jtaDisciplinas.insert(disciplina.getNomeDisciplina(), jtaDisciplinas.getCaretPosition());
-        jtaDisciplinas.append("\n");
+        jtaDisciplinas.append(disciplina.getNomeDisciplina()+"\n");
 
         }
     }//GEN-LAST:event_gravarInfos
@@ -195,12 +194,7 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        jtaDisciplinas.setEditable(false);
-        for(int i = 0;i<disciplinas.size(); i++ ){
-            // tem que pegar o campo nome para escrever nop text area
-        jtaDisciplinas.insert(disciplinas.getClass().getName(), jtaDisciplinas.getCaretPosition());
-        jtaDisciplinas.append("\n");
-        }        // TODO add your handling code here:
+        jtaDisciplinas.setEditable(false); // TODO add your handling code here:
     }//GEN-LAST:event_formWindowActivated
 
     /**
