@@ -1,4 +1,3 @@
-
 package view;
 
 import java.util.ArrayList;
@@ -6,19 +5,17 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import model.Disciplina;
 
-
 public class frmCadDisciplinaModal extends javax.swing.JDialog {
 
     private Disciplina disciplina;
-    
+
     List disciplinas = new ArrayList<Disciplina>();
-    
-    public List getDisciplinas(){
-        
+
+    public List getDisciplinas() {
+
         return disciplinas;
     }
 
-    
     public frmCadDisciplinaModal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -167,35 +164,36 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
     }//GEN-LAST:event_jtfPeriodoActionPerformed
 
     private void gravarInfos(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gravarInfos
-       
-        if(jtfNome.getText().isEmpty()||jtfAno.getText().isEmpty()||jtfPeriodo.getText().isEmpty()){
-            
+
+        if (jtfNome.getText().isEmpty() || jtfAno.getText().isEmpty() || jtfPeriodo.getText().isEmpty()) {
+
             JOptionPane.showMessageDialog(rootPane, "Existem Campos vazios");
-            
-        }
-        else{
-        disciplina.setNomeDisciplina(jtfNome.getText());
-        disciplina.setAnoDisciplina(jtfAno.getText());
-        disciplina.setPeriodoDisciplina(jtfPeriodo.getText());
-        JOptionPane.showMessageDialog(null,"DADOS GRAVADOS COM SUCESSO");
-        disciplinas.add(disciplina);
-        
-        jtaDisciplinas.append(disciplina.getNomeDisciplina()+"\n");
+
+        } else {
+            disciplina.setNomeDisciplina(jtfNome.getText());
+            disciplina.setAnoDisciplina(jtfAno.getText());
+            disciplina.setPeriodoDisciplina(jtfPeriodo.getText());
+            JOptionPane.showMessageDialog(null, "DADOS GRAVADOS COM SUCESSO");
+            disciplinas.add(disciplina);
+
+            jtaDisciplinas.append(disciplina.getNomeDisciplina() + "\n");
 
         }
     }//GEN-LAST:event_gravarInfos
 
     private void jtaDisciplinasCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jtaDisciplinasCaretUpdate
-        // TODO add your handling code here: 
+
     }//GEN-LAST:event_jtaDisciplinasCaretUpdate
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        
+        jtaDisciplinas.setEditable(false);
+        for (int i = 0; i < disciplinas.size(); i++) {
+            jtaDisciplinas.append(disciplinas.get(i).toString() + "\n");
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        jtaDisciplinas.setEditable(false); // TODO add your handling code here:
+
     }//GEN-LAST:event_formWindowActivated
 
     /**
