@@ -43,10 +43,20 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
         lblPeriodo = new javax.swing.JLabel();
         jtfPeriodo = new javax.swing.JTextField();
         btnGravar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtaDisciplinas = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        pnlCadDisciplina.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnlCadDisciplina.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         lblTitulo.setFont(new java.awt.Font("Tempus Sans ITC", 0, 34)); // NOI18N
         lblTitulo.setText("Cadastro Disciplina");
@@ -87,6 +97,15 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
             }
         });
 
+        jtaDisciplinas.setColumns(20);
+        jtaDisciplinas.setRows(5);
+        jtaDisciplinas.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                jtaDisciplinasCaretUpdate(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jtaDisciplinas);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,28 +128,34 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
                                 .addComponent(jtfNome)
                                 .addComponent(jtfPeriodo)
                                 .addComponent(jtfAno, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(pnlCadDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNome)
-                    .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAno)
-                    .addComponent(jtfAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPeriodo)
-                    .addComponent(jtfPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnGravar)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pnlCadDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNome)
+                            .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAno)
+                            .addComponent(jtfAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPeriodo)
+                            .addComponent(jtfPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnGravar)
+                        .addGap(0, 6, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
 
         pack();
@@ -154,9 +179,29 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
         disciplina.setPeriodoDisciplina(jtfPeriodo.getText());
         JOptionPane.showMessageDialog(null,"DADOS GRAVADOS COM SUCESSO");
         disciplinas.add(disciplina);
-        dispose();
+        
+        jtaDisciplinas.insert(disciplina.getNomeDisciplina(), jtaDisciplinas.getCaretPosition());
+        jtaDisciplinas.append("\n");
+
         }
     }//GEN-LAST:event_gravarInfos
+
+    private void jtaDisciplinasCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jtaDisciplinasCaretUpdate
+        // TODO add your handling code here: 
+    }//GEN-LAST:event_jtaDisciplinasCaretUpdate
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        jtaDisciplinas.setEditable(false);
+        for(int i = 0;i<disciplinas.size(); i++ ){
+            // tem que pegar o campo nome para escrever nop text area
+        jtaDisciplinas.insert(disciplinas.getClass().getName(), jtaDisciplinas.getCaretPosition());
+        jtaDisciplinas.append("\n");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -203,6 +248,8 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGravar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jtaDisciplinas;
     private javax.swing.JTextField jtfAno;
     private javax.swing.JTextField jtfNome;
     private javax.swing.JTextField jtfPeriodo;
