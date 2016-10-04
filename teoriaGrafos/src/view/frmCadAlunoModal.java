@@ -6,17 +6,19 @@ import javax.swing.JOptionPane;
 import model.Aluno;
 import model.Disciplina;
 import model.Storage;
+import model.StorageAluno;
 
 
 
 public class frmCadAlunoModal extends javax.swing.JDialog {
 
     private Aluno aluno;
+    
     ArrayList <Aluno> alunos = new ArrayList<Aluno>();
+    
     public frmCadAlunoModal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        aluno = new Aluno();
     }
 
    
@@ -32,7 +34,7 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
         pnlCadAluno = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         btnGravar = new javax.swing.JButton();
-        ListaDisciplinas = new javax.swing.JComboBox<>();
+        jcbListaDiscipinas = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtaAluno = new javax.swing.JTextArea();
 
@@ -78,9 +80,9 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
             }
         });
 
-        ListaDisciplinas.addActionListener(new java.awt.event.ActionListener() {
+        jcbListaDiscipinas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListaDisciplinas(evt);
+                jcbListaDiscipinas(evt);
             }
         });
 
@@ -109,7 +111,7 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jtfNomeAluno)
                                 .addComponent(jtfAnoAluno)
-                                .addComponent(ListaDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jcbListaDiscipinas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -132,7 +134,7 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDisciplina)
-                            .addComponent(ListaDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jcbListaDiscipinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(btnGravar))
                     .addComponent(jScrollPane1))
@@ -151,33 +153,38 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
             
         }
         else{
+        aluno = new Aluno();
         aluno.setNomeAluno(jtfNomeAluno.getText());
         aluno.setAno(jtfAnoAluno.getText());
-        aluno.setDisciplina( (Disciplina) ListaDisciplinas.getSelectedItem());
-        Storage.getInstance().getAlunos().add(alunos);
+        //aluno.setDisciplina( (Disciplina) jcbListaDiscipinas.getSelectedItem());
+        
+        StorageAluno.getInstanceAluno().getAlunos().add(alunos);
         JOptionPane.showMessageDialog(null,"DADOS GRAVADOS COM SUCESSO");
+        
         jtaAluno.append(aluno.getNomeAluno() + "\n");
         }
     }//GEN-LAST:event_gravarInfos
 
-    private void ListaDisciplinas(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaDisciplinas
+    private void jcbListaDiscipinas(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbListaDiscipinas
         
-    }//GEN-LAST:event_ListaDisciplinas
+    }//GEN-LAST:event_jcbListaDiscipinas
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         jtaAluno.setEditable(false);
+        
+        // preencher combo box
         ArrayList array = Storage.getInstance().getDisciplinas();
         String str = null;
         for (int i = 0; i < array.size(); i++) {
             str = (String) array.get(i).toString();
-            ListaDisciplinas.addItem(str);
+            jcbListaDiscipinas.addItem(str);
         }
-
-        for (Aluno obj : alunos) {
+        
+        // preencher text area
+        alunos = StorageAluno.getInstanceAluno().getAlunos();
+        for (Aluno obj: alunos) {
             jtaAluno.append(obj.getNomeAluno() + "\n");
         }
-        jtaAluno.append(aluno.getNomeAluno() + "\n");
-        jtaAluno.append(aluno.getNomeAluno() + "\n");
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -224,9 +231,9 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> ListaDisciplinas;
     private javax.swing.JButton btnGravar;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> jcbListaDiscipinas;
     private javax.swing.JTextArea jtaAluno;
     private javax.swing.JTextField jtfAnoAluno;
     private javax.swing.JTextField jtfNomeAluno;

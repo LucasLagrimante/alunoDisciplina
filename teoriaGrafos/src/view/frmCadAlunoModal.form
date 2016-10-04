@@ -46,7 +46,7 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jtfNomeAluno" max="32767" attributes="0"/>
                               <Component id="jtfAnoAluno" max="32767" attributes="0"/>
-                              <Component id="ListaDisciplinas" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
+                              <Component id="jcbListaDiscipinas" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -77,7 +77,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblDisciplina" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ListaDisciplinas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jcbListaDiscipinas" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnGravar" min="-2" max="-2" attributes="0"/>
@@ -157,14 +157,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gravarInfos"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="ListaDisciplinas">
+    <Component class="javax.swing.JComboBox" name="jcbListaDiscipinas">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListaDisciplinas"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbListaDiscipinas"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

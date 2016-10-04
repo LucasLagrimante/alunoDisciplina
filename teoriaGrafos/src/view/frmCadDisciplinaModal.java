@@ -178,9 +178,10 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
             disciplina.setNomeDisciplina(jtfNome.getText());
             disciplina.setAnoDisciplina(jtfAno.getText());
             disciplina.setPeriodoDisciplina(jtfPeriodo.getText());
-            JOptionPane.showMessageDialog(null, "DADOS GRAVADOS COM SUCESSO");
+            
             Storage.getInstance().getDisciplinas().add(disciplina);
-
+            JOptionPane.showMessageDialog(null, "DADOS GRAVADOS COM SUCESSO");
+            
             jtaDisciplinas.append(disciplina.getNomeDisciplina() + "\n");
 
         }
@@ -192,6 +193,8 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         jtaDisciplinas.setEditable(false);
+        
+        // preencher text area
         disciplinas = Storage.getInstance().getDisciplinas();
         for (Disciplina obj: disciplinas) {
             jtaDisciplinas.append(obj.getNomeDisciplina() + "\n");

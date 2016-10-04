@@ -3,17 +3,19 @@ package view;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.Aluno;
 import model.Disciplina;
 
 
 public class frmPrincipal extends javax.swing.JFrame {
 
     private ArrayList<Disciplina> disciplinas;
-    
+    private ArrayList<Aluno> alunos;
     
     public frmPrincipal() {
         initComponents();
         disciplinas = new ArrayList();
+        alunos = new ArrayList();
     }
 
     public ArrayList<Disciplina> getDisciplinas() {
@@ -22,6 +24,14 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     public void setDisciplinas(ArrayList<Disciplina> disciplinas) {
         this.disciplinas = disciplinas;
+    }
+    
+     public ArrayList<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(ArrayList<Aluno> alunos) {
+        this.alunos = alunos;
     }
    
     
