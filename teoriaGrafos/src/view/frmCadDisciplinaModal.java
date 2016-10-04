@@ -191,7 +191,7 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
     }//GEN-LAST:event_jtaDisciplinasCaretUpdate
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        jtaDisciplinas.setEditable(true);
+        jtaDisciplinas.setEditable(false);
         disciplinas = Storage.getInstance().getDisciplinas();
         for (Disciplina obj: disciplinas) {
             jtaDisciplinas.append(obj.getNomeDisciplina() + "\n");
