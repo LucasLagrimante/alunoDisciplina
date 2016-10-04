@@ -5,7 +5,7 @@ public class Principal {
 	public static void main(String[] args) {
              
              Disciplina d1 = new Disciplina ("Matematica", "10/07/2016", "6periodo");
-             Disciplina d2 = new Disciplina ("Matematica", "10/07/2016", "8periodo");
+             Disciplina d2 = new Disciplina ("Portugues", "10/07/2016", "8periodo");
              Aluno a1 = new Aluno ("Jose", "10/07/2016", d1);
              
              XStream xstream = new XStream();
