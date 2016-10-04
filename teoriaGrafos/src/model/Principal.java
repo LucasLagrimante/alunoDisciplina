@@ -8,6 +8,7 @@ public class Principal {
              Disciplina d2 = new Disciplina ("Portugues", "10/07/2016", "8periodo");
              Aluno a1 = new Aluno ("Jose", "10/07/2016", d1);
              
+             //faltando a biblioteca
              XStream xstream = new XStream();
              
              xstream.alias("disciplina", Disciplina.class);
