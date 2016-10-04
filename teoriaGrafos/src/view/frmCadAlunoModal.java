@@ -4,6 +4,7 @@ package view;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Aluno;
+import model.Disciplina;
 import model.Storage;
 
 
@@ -11,7 +12,7 @@ import model.Storage;
 public class frmCadAlunoModal extends javax.swing.JDialog {
 
     private Aluno aluno;
-   
+    ArrayList <Aluno> alunos = new ArrayList<Aluno>();
     public frmCadAlunoModal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -152,9 +153,9 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
         else{
         aluno.setNomeAluno(jtfNomeAluno.getText());
         aluno.setAno(jtfAnoAluno.getText());
-        //aluno.setDisciplina(ListaDisciplinas.getSelectedItem();));
+        aluno.setDisciplina( (Disciplina) ListaDisciplinas.getSelectedItem());
+        Storage.getInstance().getAlunos().add(alunos);
         JOptionPane.showMessageDialog(null,"DADOS GRAVADOS COM SUCESSO");
-        
         jtaAluno.append(aluno.getNomeAluno() + "\n");
         }
     }//GEN-LAST:event_gravarInfos
@@ -164,14 +165,19 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
     }//GEN-LAST:event_ListaDisciplinas
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-            jtaAluno.setEditable(false);
-             ArrayList array = Storage.getInstance().getDisciplinas();
-            String str = null;  
-            for(int i = 0; i <array.size(); i++ ){  
-                str = (String) array.get(i).toString();  
-                ListaDisciplinas.addItem(str);  
-           }
-           jtaAluno.append(aluno.getNomeAluno() + "\n");
+        jtaAluno.setEditable(false);
+        ArrayList array = Storage.getInstance().getDisciplinas();
+        String str = null;
+        for (int i = 0; i < array.size(); i++) {
+            str = (String) array.get(i).toString();
+            ListaDisciplinas.addItem(str);
+        }
+
+        for (Aluno obj : alunos) {
+            jtaAluno.append(obj.getNomeAluno() + "\n");
+        }
+        jtaAluno.append(aluno.getNomeAluno() + "\n");
+        jtaAluno.append(aluno.getNomeAluno() + "\n");
     }//GEN-LAST:event_formWindowOpened
 
     /**
