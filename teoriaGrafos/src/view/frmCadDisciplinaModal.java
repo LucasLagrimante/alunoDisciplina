@@ -10,7 +10,7 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
 
     private Disciplina disciplina;
 
-    ArrayList disciplinas = new ArrayList<Disciplina>();
+    ArrayList <Disciplina> disciplinas = new ArrayList<Disciplina>();
 
     /*public ArrayList getDisciplinas() {
 
@@ -20,7 +20,7 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
     public frmCadDisciplinaModal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        disciplina = new Disciplina();
+        
     }
 
     /**
@@ -32,6 +32,7 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
         pnlCadDisciplina = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         lblNome = new javax.swing.JLabel();
@@ -44,6 +45,8 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtaDisciplinas = new javax.swing.JTextArea();
 
+        jFormattedTextField1.setText("jFormattedTextField1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -54,7 +57,7 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
             }
         });
 
-        pnlCadDisciplina.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        pnlCadDisciplina.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lblTitulo.setFont(new java.awt.Font("Tempus Sans ITC", 0, 34)); // NOI18N
         lblTitulo.setText("Cadastro Disciplina");
@@ -128,7 +131,7 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
                                 .addComponent(jtfAno, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,6 +174,7 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(rootPane, "Existem Campos vazios");
 
         } else {
+            disciplina = new Disciplina();
             disciplina.setNomeDisciplina(jtfNome.getText());
             disciplina.setAnoDisciplina(jtfAno.getText());
             disciplina.setPeriodoDisciplina(jtfPeriodo.getText());
@@ -187,9 +191,10 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
     }//GEN-LAST:event_jtaDisciplinasCaretUpdate
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        jtaDisciplinas.setEditable(false);
-        for (int i = 0; i < disciplinas.size(); i++) {
-            jtaDisciplinas.append(disciplinas.get(i).toString() + "\n");
+        jtaDisciplinas.setEditable(true);
+        disciplinas = Storage.getInstance().getDisciplinas();
+        for (Disciplina obj: disciplinas) {
+            jtaDisciplinas.append(obj.getNomeDisciplina() + "\n");
         }
     }//GEN-LAST:event_formWindowOpened
 
@@ -242,6 +247,7 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGravar;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jtaDisciplinas;
     private javax.swing.JTextField jtfAno;

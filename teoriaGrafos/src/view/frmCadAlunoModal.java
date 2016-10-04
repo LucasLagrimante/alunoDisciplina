@@ -141,6 +141,7 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
         else{
         aluno.setNomeAluno(jtfNomeAluno.getText());
         aluno.setAno(jtfAnoAluno.getText());
+        //aluno.setDisciplina(ListaDisciplinas.);
         JOptionPane.showMessageDialog(null,"DADOS GRAVADOS COM SUCESSO");
         dispose();
         }
