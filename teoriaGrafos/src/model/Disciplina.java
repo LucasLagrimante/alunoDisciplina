@@ -8,18 +8,13 @@ public class Disciplina {
     
     private String nomeDisciplina, anoDisciplina, periodoDisciplina;;
     
-    private static ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
-
-    public static ArrayList getDisciplinas() {
-        return disciplinas;
-    }
     
     public Disciplina(String nomeDisciplina, String anoDisciplina, String periodoDisciplina) {
        
         this.nomeDisciplina = nomeDisciplina;
         this.anoDisciplina = anoDisciplina;
         this.periodoDisciplina = periodoDisciplina;
-        disciplinas.add(this);
+  
     }
 
     public Disciplina() {
@@ -47,6 +42,11 @@ public class Disciplina {
 
     public void setPeriodoDisciplina(String periodoDisciplina) {
         this.periodoDisciplina = periodoDisciplina;
+    }
+    
+    @Override
+    public String toString() {
+        return this.nomeDisciplina;
     }
     
 }

@@ -4,7 +4,7 @@ package view;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Aluno;
-import static model.Disciplina.getDisciplinas;
+import model.Storage;
 
 
 
@@ -147,14 +147,13 @@ public class frmCadAlunoModal extends javax.swing.JDialog {
     }//GEN-LAST:event_gravarInfos
 
     private void ListaDisciplinas(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaDisciplinas
-
+        
     }//GEN-LAST:event_ListaDisciplinas
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-            ArrayList array = new ArrayList();
-            array = getDisciplinas();
+            ArrayList array = Storage.getInstance().getDisciplinas();
             String str = null;  
-            for(int i = 0;i<array.size(); i++ ){  
+            for(int i = 0; i <array.size(); i++ ){  
                 str = (String) array.get(i).toString();  
                 ListaDisciplinas.addItem(str);  
            }        

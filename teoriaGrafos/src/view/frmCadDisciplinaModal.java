@@ -4,17 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import model.Disciplina;
+import model.Storage;
 
 public class frmCadDisciplinaModal extends javax.swing.JDialog {
 
     private Disciplina disciplina;
 
-    List disciplinas = new ArrayList<Disciplina>();
+    ArrayList disciplinas = new ArrayList<Disciplina>();
 
-    public List getDisciplinas() {
+    /*public ArrayList getDisciplinas() {
 
         return disciplinas;
-    }
+    }*/
 
     public frmCadDisciplinaModal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -174,7 +175,7 @@ public class frmCadDisciplinaModal extends javax.swing.JDialog {
             disciplina.setAnoDisciplina(jtfAno.getText());
             disciplina.setPeriodoDisciplina(jtfPeriodo.getText());
             JOptionPane.showMessageDialog(null, "DADOS GRAVADOS COM SUCESSO");
-            disciplinas.add(disciplina);
+            Storage.getInstance().getDisciplinas().add(disciplina);
 
             jtaDisciplinas.append(disciplina.getNomeDisciplina() + "\n");
 
